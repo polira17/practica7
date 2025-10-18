@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cálculo de salario</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 2px solid #32a1d1;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #cb8824;
+        }
+    </style>
+</head>
+<body>
+    <br><br>
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Curp</th>
+            <th>Foto</th>
+            <th>Nombre</th>
+            <th>Sueldo diario</th>
+            <th>Días trabajados</th>
+            <th>Sub total</th>
+            <th>Bono 30%</th>
+            <th>Total</th>
+        </tr>
+        <script>
+            let curp = prompt("Ingresa tu CURP");    
+            let nombre = prompt("Ingresa tu nombre");
+            let sueldo = parseFloat(prompt("Ingresa tu sueldo diario"));
+            let dias = parseInt(prompt("Ingresa tus días chambeados"));
+            
+            let total = sueldo * dias;
+            let sueldobono = 0;
+            if (dias >= 10) sueldobono = sueldo * 0.30;
+            let total1 = total + sueldobono;
+
+            let imagenes = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
+
+            
+            let imagenAleatoria = imagenes[Math.floor(Math.random() * imagenes.length)];
+            let rutaImagen = "practica7/" + imagenAleatoria;
+
+            document.write(`
+                <tr>
+                    <td>1</td>
+                    <td>${curp}</td>
+                    <td><img src="${rutaImagen}" width="80"></td>
+                    <td>${nombre}</td>
+                    <td>$${sueldo.toFixed(2)}</td>
+                    <td>${dias}</td>
+                    <td>$${total.toFixed(2)}</td>
+                    <td>$${sueldobono.toFixed(2)}</td>
+                    <td>$${total1.toFixed(2)}</td>
+                </tr>
+            `);
+        </script>
+    </table>
+</body>
+</html>
